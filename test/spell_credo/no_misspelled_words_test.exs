@@ -20,7 +20,7 @@ defmodule SpellCredo.NoMisspelledWordsTest do
     |> refute_issues()
   end
 
-  test "Rejects incorrectly spelt words" do
+  test "Rejects incorrectly spelled words" do
     """
     @moduledoc "Information about the module goes here
 

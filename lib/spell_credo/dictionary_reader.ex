@@ -7,6 +7,7 @@ defmodule SpellCredo.DictionaryReader do
     The user dictionary defined by the user_dictionary option
     The elixir specific dictionary in priv/dictionary/elixir.list
   """
+
   def dictionaries(params) do
     [language_dictionary(params), user_dictionary(params), elixir_dictionary(params)]
   end
@@ -48,11 +49,17 @@ defmodule SpellCredo.DictionaryReader do
   end
 
   def priv_dictionary_file(name) do
-    List.to_string(:code.priv_dir(:spell_credo)) <> "/dictionaries/#{name}.list"
+    case :code.priv_dir(:spell_credo) do
+      dir when is_list(dir) ->
+        List.to_string(dir) <> "/dictionaries/#{name}.list"
+
+      {:error, :bad_name} ->
+        "priv/dictionaries/#{name}.list"
+    end
   end
 
-  def stream_from_location(file_loc) do
-    file_loc
+  def stream_from_location(file_location) do
+    file_location
     |> File.stream!()
     |> Stream.map(&String.downcase/1)
     |> Stream.map(&String.trim/1)

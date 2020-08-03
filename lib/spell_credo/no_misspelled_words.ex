@@ -19,7 +19,6 @@ defmodule SpellCredo.NoMisspelledWords do
   @moduledoc """
   Words should not be misspelled.
   """
-
   def run(source_file, params \\ []) do
     issue_meta = IssueMeta.for(source_file, params)
 
@@ -38,11 +37,11 @@ defmodule SpellCredo.NoMisspelledWords do
     {[], to_words(string) ++ word_list}
   end
 
-  defp traverse({atom, rest}, word_list) do
+  defp traverse({atom, rest}, word_list) when is_atom(atom) do
     {rest, to_words(atom) ++ word_list}
   end
 
-  defp traverse({atom, line, rest}, word_list) do
+  defp traverse({atom, line, rest}, word_list) when is_atom(atom) do
     {{atom, line, rest}, to_words(atom) ++ word_list}
   end
 
