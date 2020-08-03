@@ -1,4 +1,4 @@
-# SpellCredo
+# CredoSpellchecker
 
 Spell checking for [Credo](https://github.com/rrrene/credo)
 

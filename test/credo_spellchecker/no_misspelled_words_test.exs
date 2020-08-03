@@ -1,7 +1,7 @@
-defmodule SpellCredo.NoMisspelledWordsTest do
+defmodule CredoSpellchecker.NoMisspelledWordsTest do
   use Credo.Test.Case
 
-  alias SpellCredo.NoMisspelledWords
+  alias CredoSpellchecker.NoMisspelledWords
 
   @default_params [language_code: "en_CA", user_dictionary: nil]
 

@@ -1,9 +1,9 @@
-defmodule SpellCredo.MixProject do
+defmodule CredoSpellchecker.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :spell_credo,
+      app: :credo_spellchecker,
       version: "0.1.0",
       elixir: "~> 1.10",
       deps: deps()

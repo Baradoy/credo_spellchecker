@@ -1,4 +1,4 @@
-defmodule SpellCredo.NoMisspelledWords do
+defmodule CredoSpellchecker.NoMisspelledWords do
   use Credo.Check,
     base_priority: :high,
     category: :readability,
@@ -14,7 +14,7 @@ defmodule SpellCredo.NoMisspelledWords do
     ],
     param_defaults: [language_code: "en_CA", user_dictionary: nil]
 
-  alias SpellCredo.DictionaryReader
+  alias CredoSpellchecker.DictionaryReader
 
   @moduledoc """
   Words should not be misspelled.
@@ -25,7 +25,7 @@ defmodule SpellCredo.NoMisspelledWords do
     source_file
     |> Credo.Code.prewalk(&traverse/2)
     |> Enum.sort()
-    |> SpellCredo.DictionaryFilter.filter(DictionaryReader.dictionaries(params))
+    |> CredoSpellchecker.DictionaryFilter.filter(DictionaryReader.dictionaries(params))
     |> Enum.map(fn bad_word -> issue_for(bad_word, issue_meta) end)
   end
 

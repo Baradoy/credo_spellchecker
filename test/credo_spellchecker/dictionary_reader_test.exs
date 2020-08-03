@@ -1,10 +1,10 @@
-defmodule SpellCredo.DictionaryReaderTest do
+defmodule CredoSpellchecker.DictionaryReaderTest do
   use ExUnit.Case
 
-  alias SpellCredo.DictionaryReader
+  alias CredoSpellchecker.DictionaryReader
 
   test "Every included dictionary can be loaded (and is therefore sorted)" do
-    directory = List.to_string(:code.priv_dir(:spell_credo)) <> "/dictionaries"
+    directory = List.to_string(:code.priv_dir(:credo_spellchecker)) <> "/dictionaries"
 
     directory
     |> File.ls!()

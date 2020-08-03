@@ -1,4 +1,4 @@
-defmodule SpellCredo.DictionaryFilter do
+defmodule CredoSpellchecker.DictionaryFilter do
   @moduledoc """
   Filters out words that are found in the given dictionaries, leaving only misspelled words.
   """

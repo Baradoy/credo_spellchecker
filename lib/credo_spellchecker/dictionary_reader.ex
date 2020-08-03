@@ -1,4 +1,4 @@
-defmodule SpellCredo.DictionaryReader do
+defmodule CredoSpellchecker.DictionaryReader do
   @moduledoc """
   Reads dictionary files.
 
@@ -49,7 +49,7 @@ defmodule SpellCredo.DictionaryReader do
   end
 
   def priv_dictionary_file(name) do
-    case :code.priv_dir(:spell_credo) do
+    case :code.priv_dir(:credo_spellchecker) do
       dir when is_list(dir) ->
         List.to_string(dir) <> "/dictionaries/#{name}.list"
 
