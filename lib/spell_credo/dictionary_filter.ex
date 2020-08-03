@@ -1,10 +1,14 @@
 defmodule SpellCredo.DictionaryFilter do
+  @moduledoc """
+  Filters out words that are found in the given dictionaries, leaving only misspelled words.
+  """
+
   def filter(sorted_word_list, []) do
     sorted_word_list
   end
 
   def filter(sorted_word_list, [current_stream | dictionary_streams]) do
-    dictionary = Enum.into(current_stream, [])
+    dictionary = Enum.to_list(current_stream)
 
     sorted_word_list
     |> filter_words_in_dictionary(dictionary, [])

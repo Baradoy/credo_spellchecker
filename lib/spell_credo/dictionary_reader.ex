@@ -1,4 +1,12 @@
 defmodule SpellCredo.DictionaryReader do
+  @moduledoc """
+  Reads dictionary files.
+
+  Returns the streams for
+    The language defined by the language_code option
+    The user dictionary defined by the user_dictionary option
+    The elixir specific dictionary in priv/dictionary/elixir.list
+  """
   def dictionaries(params) do
     [language_dictionary(params), user_dictionary(params), elixir_dictionary(params)]
   end
