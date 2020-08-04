@@ -42,14 +42,6 @@ defmodule CredoSpellchecker.DictionaryReader do
     |> dictionary_from_location()
   end
 
-  def assert_sorted(a, b) when a >= b do
-    a
-  end
-
-  def assert_sorted(a, b) do
-    raise "Dictionary is not sorted! `#{b}` should not be before `#{a}`. The NoMisspelledWords Credo check relies on dictionaries being sorted."
-  end
-
   def priv_dictionary_file(name) do
     path = get_priv_path()
 

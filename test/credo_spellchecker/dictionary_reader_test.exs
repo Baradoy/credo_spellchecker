@@ -3,7 +3,7 @@ defmodule CredoSpellchecker.DictionaryReaderTest do
 
   alias CredoSpellchecker.DictionaryReader
 
-  test "Every included dictionary can be loaded (and is therefore sorted)" do
+  test "Every included dictionary can be loaded" do
     directory = List.to_string(:code.priv_dir(:credo_spellchecker)) <> "/dictionaries"
 
     directory
