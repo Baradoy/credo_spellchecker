@@ -6,7 +6,10 @@ defmodule CredoSpellchecker.MixProject do
       app: :credo_spellchecker,
       version: "0.1.0",
       elixir: "~> 1.10",
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
+      source_url: "https://github.com/Baradoy/credo_spellchecker"
     ]
   end
 
@@ -19,6 +22,20 @@ defmodule CredoSpellchecker.MixProject do
   defp deps do
     [
       {:credo, "~> 1.4"}
+    ]
+  end
+
+  defp description() do
+    """
+    A Spellchecker rule for Credo
+    """
+  end
+
+  defp package() do
+    [
+      maintainers: ["Graham Baradoy"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/Baradoy/credo_spellchecker"}
     ]
   end
 end
