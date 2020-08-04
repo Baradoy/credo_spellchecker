@@ -4,7 +4,7 @@ defmodule CredoSpellchecker.MixProject do
   def project do
     [
       app: :credo_spellchecker,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.10",
       deps: deps(),
       description: description(),
