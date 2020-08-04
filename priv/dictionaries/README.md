@@ -1,20 +1,19 @@
 # Dictionaries
 
-## Copywrite
+## Adding Missing Words
 
-Any copywrite notices for a dictionary must be included with the dictionary. Include the notice in a file titled `\${language_code}.txt. For example the copywrite notice for en_CA.list is in en_CA.txt.
+If an Elixir term is missing, add it to `/priv/dictionaries/elixir.list` and create a PR.
 
-## Sorting
+## Adding New Dictionaries
 
-Dictionaries must be sorted. This
-Consider using `LC_ALL=C sort -f` to produce sorted dictionaries.
+Dictionaries should be stored in `/priv/dictionaries`. The file name should start with the the language_code. E.g. `en_CA.tar.gz` for the Canadian English dictionary.
 
-## Filename
+- Dictionaries with the `.tar.gz` extension can be found at http://app.aspell.net/create. Those files are expected to have a file `SCOWL-wl/words.txt` inside the archive which contains the dictionary.
+- Dictionaries with the `.list` extension should have a words per line.
 
-Dictionaries should be stored in `/priv/dictionaries`. The file name should be the language code with a `.list` extention.
+The dictionary can be selected by changing the language_code param in `.credo.exs`.
 
-## TODO
-
-A better approach to this may be to take files from http://wordlist.aspell.net/ and create sorted lists from them at compile time.
-
-It would also be good to include these as a zip file.
+```elixir
+{CredoSpellchecker.NoMisspelledWords,
+         [language_code: "en_GB"]}
+```

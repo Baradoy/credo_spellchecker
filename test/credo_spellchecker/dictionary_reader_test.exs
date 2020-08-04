@@ -14,7 +14,7 @@ defmodule CredoSpellchecker.DictionaryReaderTest do
       |> String.trim(".list")
       |> DictionaryReader.priv_dictionary_file()
     end)
-    |> Enum.map(&DictionaryReader.stream_from_location/1)
+    |> Enum.map(&DictionaryReader.dictionary_from_location/1)
     |> Enum.map(&Enum.to_list/1)
   end
 end

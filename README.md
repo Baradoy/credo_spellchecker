@@ -24,7 +24,7 @@ Add the `CredoSpellchecker.NoMisspelledWords` check to your list of Credo checks
 
 Create a `user_dictionary.list` to use as your own user added words. Alternatively, you can remove the `user_dictionary` setting from `NoMisspelledWords` and you do not have to create a user dictionary file.
 
-The user dictionary file should contain a word per line that should be allowed by the spellchecker. This file must be sorted.
+The user dictionary file should contain a word per line that should be allowed by the spellchecker.
 
 e.g.
 

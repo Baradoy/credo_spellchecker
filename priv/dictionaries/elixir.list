@@ -37,9 +37,11 @@ elixir
 elixirc
 enum
 env
+erl
 erlang
 float
 fn
+hd
 hexpm
 iex
 integer
