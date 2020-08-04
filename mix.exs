@@ -21,7 +21,8 @@ defmodule CredoSpellchecker.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.4"}
+      {:credo, "~> 1.4"},
+      {:ex_doc, "~> 0.22", only: :dev, runtime: false}
     ]
   end
 
