@@ -11,7 +11,7 @@ Add `credo_spellchecker` to your list of dependencies in `mix.exs`.
 ```elixir
 def deps do
     [
-        {:credo_spellchecker, git: "https://github.com/Baradoy/credo_spellchecker.git", tag: "0.1.0"}
+        {:credo_spellchecker, "~> 0.1.0"}
     ]
 end
 ```
