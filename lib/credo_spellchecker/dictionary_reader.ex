@@ -15,7 +15,7 @@ defmodule CredoSpellchecker.DictionaryReader do
   end
 
   def language_dictionary(params) when is_list(params) do
-    language_dictionary(Keyword.get(params, :language_code))
+    language_dictionary(Keyword.get(params, :language_code, "en_CA"))
   end
 
   def language_dictionary(language_code) do

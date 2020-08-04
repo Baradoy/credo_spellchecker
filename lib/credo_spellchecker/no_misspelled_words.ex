@@ -1,8 +1,20 @@
 defmodule CredoSpellchecker.NoMisspelledWords do
-  use Credo.Check,
-    base_priority: :high,
-    category: :readability,
-    explanations: [
+  use Credo.Check
+
+  alias CredoSpellchecker.DictionaryReader
+
+  @moduledoc """
+  Words should not be misspelled.
+  """
+
+  def base_priority, do: :high
+
+  def category, do: :readability
+
+  def param_defaults, do: [language_code: "en_CA", user_dictionary: nil]
+
+  def explanations do
+    [
       check: """
       Checks for misspelled words in your code.
       """,
@@ -11,14 +23,9 @@ defmodule CredoSpellchecker.NoMisspelledWords do
           "The language you want words to be checked against. Defaults to en_CA for Canadian English. Consider a PR to add a dictionary for languages not yet included.",
         user_dictionary: "Path to a dictionary of user allowed words."
       ]
-    ],
-    param_defaults: [language_code: "en_CA", user_dictionary: nil]
+    ]
+  end
 
-  alias CredoSpellchecker.DictionaryReader
-
-  @moduledoc """
-  Words should not be misspelled.
-  """
   def run(source_file, params \\ []) do
     issue_meta = IssueMeta.for(source_file, params)
 

@@ -112,8 +112,7 @@
         {Credo.Check.Readability.TrailingWhiteSpace, []},
         {Credo.Check.Readability.UnnecessaryAliasExpansion, []},
         {Credo.Check.Readability.VariableNames, []},
-        {CredoSpellchecker.NoMisspelledWords,
-         [language_code: "en_CA", user_dictionary: "user_dictionary.list"]},
+        {CredoSpellchecker.NoMisspelledWords, [user_dictionary: "user_dictionary.list"]},
 
         #
         ## Refactoring Opportunities

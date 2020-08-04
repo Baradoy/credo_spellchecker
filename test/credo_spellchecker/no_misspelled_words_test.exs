@@ -7,11 +7,11 @@ defmodule CredoSpellchecker.NoMisspelledWordsTest do
 
   test "Accepts correctly spelled words" do
     """
-    @moduledoc "Information about the module goes here"
+    @moduledoc "Information about the module goes here."
 
     defmodule CredoTestModule do
       def spelled_correctly(something, something_else) do
-        something <> something_else <> "real string here"
+        something <> something_else <> "real string here honour"
       end
     end
     """
@@ -34,7 +34,7 @@ defmodule CredoSpellchecker.NoMisspelledWordsTest do
     end
     """
     |> to_source_file()
-    |> run_check(NoMisspelledWords, @default_params)
+    |> run_check(NoMisspelledWords, [])
     |> assert_issue(fn issue -> assert issue.trigger == "inexorablabiliabuddy" end)
   end
 
@@ -57,5 +57,18 @@ defmodule CredoSpellchecker.NoMisspelledWordsTest do
       user_dictionary: "test/user_test_dictionary.list"
     )
     |> refute_issues()
+  end
+
+  test "Changing the language code rejects words" do
+    """
+    defmodule Honour do
+      def spelled_correctly(something, something_else) do
+        something <> something_else <> "real string here"
+      end
+    end
+    """
+    |> to_source_file()
+    |> run_check(NoMisspelledWords, language_code: "en_US")
+    |> assert_issue(fn issue -> assert issue.trigger == "honour" end)
   end
 end
