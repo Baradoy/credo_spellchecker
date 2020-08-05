@@ -54,6 +54,7 @@ nonode
 overridable
 param
 params
+pid
 postwalk
 prewalk
 priv
@@ -65,3 +66,4 @@ structs
 tuple
 typedoc
 typespec
+whereis

@@ -1,7 +1,7 @@
 defmodule CredoSpellchecker.NoMisspelledWords do
   use Credo.Check
 
-  alias CredoSpellchecker.DictionaryReader
+  alias CredoSpellchecker.DictionaryServer
 
   @moduledoc """
   Words should not be misspelled.
@@ -32,7 +32,7 @@ defmodule CredoSpellchecker.NoMisspelledWords do
     source_file
     |> Credo.Code.prewalk(&traverse/2)
     |> Enum.sort()
-    |> CredoSpellchecker.DictionaryFilter.filter(DictionaryReader.dictionaries(params))
+    |> CredoSpellchecker.DictionaryFilter.filter(DictionaryServer.get_dictionaries(params))
     |> Enum.map(fn bad_word -> issue_for(bad_word, issue_meta) end)
   end
 

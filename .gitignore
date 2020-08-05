@@ -21,3 +21,6 @@ erl_crash.dump
 
 # Ignore package tarball (built via "mix hex.build").
 body_check-*.tar
+
+# Ignore VSCode files
+/.vscode/

@@ -2,7 +2,7 @@
 
 Spellchecker for [Credo](https://github.com/rrrene/credo)
 
-This is a fairly simple spellchecker which uses wordlists from http://app.aspell.net/create.
+This is a fairly simple spellchecker which uses word lists from http://app.aspell.net/create.
 
 ## Installation
 
