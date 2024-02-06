@@ -67,7 +67,7 @@ defmodule CredoSpellchecker.DictionaryReader do
 
     file
     |> Enum.find_value(fn
-      {'SCOWL-wl/words.txt', dictionary} -> dictionary
+      {~c"SCOWL-wl/words.txt", dictionary} -> dictionary
       _ -> false
     end)
     |> String.split(~r/\s+/)
@@ -83,7 +83,7 @@ defmodule CredoSpellchecker.DictionaryReader do
     |> Enum.sort()
   end
 
-  defp get_priv_path() do
+  defp get_priv_path do
     case :code.priv_dir(:credo_spellchecker) do
       dir when is_list(dir) ->
         List.to_string(dir) <> "/dictionaries/"

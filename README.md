@@ -11,12 +11,12 @@ Add `credo_spellchecker` to your list of dependencies in `mix.exs`.
 ```elixir
 def deps do
     [
-        {:credo_spellchecker, "~> 0.1"}
+        {:credo_spellchecker, "~> 0.1", only: [:dev, :test], runtime: false}
     ]
 end
 ```
 
-Add the `CredoSpellchecker.NoMisspelledWords` check to your list of Credo checks in `.credo.exs` (you can generate this file with `mix credo.gen.config` if you do not already have it.
+Add the `CredoSpellchecker.NoMisspelledWords` check to your list of Credo checks in `.credo.exs` (you can generate this file with `mix credo.gen.config` if you do not already have it).
 
 ```elixir
 {CredoSpellchecker.NoMisspelledWords, [language_code: "en_CA", user_dictionary: "user_dictionary.list"]},
