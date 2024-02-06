@@ -11,7 +11,10 @@ defmodule CredoSpellchecker.DictionaryServer do
     do: GenServer.start_link(__MODULE__, params, name: __MODULE__)
 
   def get_dictionaries(params) do
-    {:ok, pid} = ensure_started(params)
+    {:ok, pid} =
+      params
+      |> ensure_started()
+      |> extract_pid()
 
     GenServer.call(pid, :get_dictionaries)
   end
@@ -35,5 +38,13 @@ defmodule CredoSpellchecker.DictionaryServer do
       nil -> start_link(params)
       pid -> {:ok, pid}
     end
+  end
+
+  defp extract_pid({:ok, pid}) do
+    {:ok, pid}
+  end
+
+  defp extract_pid({:error, {:already_started, pid}}) do
+    {:ok, pid}
   end
 end
