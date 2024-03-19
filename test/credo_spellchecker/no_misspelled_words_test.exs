@@ -86,8 +86,8 @@ defmodule CredoSpellchecker.NoMisspelledWordsTest do
       """
       |> to_source_file()
       |> run_check(NoMisspelledWords, @default_params)
-      |> assert_issue(fn issue -> assert issue.trigger == "garryâ" end)
-      |> assert_issue(fn issue -> assert issue.message == "Found misspelled word `garryâ`." end)
+      |> assert_issue(fn issue -> assert issue.trigger == "garry�" end)
+      |> assert_issue(fn issue -> assert issue.message == "Found misspelled word `garry�`." end)
     end
 
     test "even when UTF-8 escaped punctuation is part of a misspelling" do
@@ -103,8 +103,8 @@ defmodule CredoSpellchecker.NoMisspelledWordsTest do
       """
       |> to_source_file()
       |> run_check(NoMisspelledWords, @default_params)
-      |> assert_issue(fn issue -> assert issue.trigger == "\xEF" end)
-      |> assert_issue(fn issue -> assert issue.message == "Found misspelled word `ï`." end)
+      |> assert_issue(fn issue -> assert issue.trigger == "�" end)
+      |> assert_issue(fn issue -> assert issue.message == "Found misspelled word `�`." end)
     end
   end
 end

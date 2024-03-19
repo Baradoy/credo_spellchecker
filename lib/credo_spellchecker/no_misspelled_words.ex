@@ -67,23 +67,14 @@ defmodule CredoSpellchecker.NoMisspelledWords do
   defp issue_for(trigger, issue_meta) do
     format_issue(
       issue_meta,
-      message: binary_to_string("Found misspelled word `#{trigger}`."),
-      trigger: binary_to_string("#{trigger}")
+      message: to_valid_string("Found misspelled word `#{trigger}`."),
+      trigger: to_valid_string("#{trigger}")
     )
   end
 
-  defp binary_to_string(binary) do
-    codepoints = String.codepoints(binary)
-
-    Enum.reduce(codepoints, fn w, result ->
-      cond do
-        String.valid?(w) ->
-          result <> w
-
-        true ->
-          <<parsed::8>> = w
-          result <> <<parsed::utf8>>
-      end
-    end)
+  defp to_valid_string(binary) do
+    binary
+    |> to_string()
+    |> String.replace_invalid()
   end
 end
