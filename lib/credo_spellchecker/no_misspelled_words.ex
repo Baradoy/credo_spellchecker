@@ -67,8 +67,14 @@ defmodule CredoSpellchecker.NoMisspelledWords do
   defp issue_for(trigger, issue_meta) do
     format_issue(
       issue_meta,
-      message: "Found misspelled word `#{trigger}`.",
-      trigger: "#{trigger}"
+      message: to_valid_string("Found misspelled word `#{trigger}`."),
+      trigger: to_valid_string("#{trigger}")
     )
+  end
+
+  defp to_valid_string(binary) do
+    binary
+    |> to_string()
+    |> String.replace_invalid()
   end
 end
