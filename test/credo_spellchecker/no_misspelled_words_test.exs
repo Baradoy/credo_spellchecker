@@ -3,6 +3,8 @@ defmodule CredoSpellchecker.NoMisspelledWordsTest do
 
   alias CredoSpellchecker.NoMisspelledWords
 
+  # credo:disable-for-this-file
+
   @default_params [language_code: "en_CA", user_dictionary: "test/user_test_dictionary.list"]
 
   test "Accepts correctly spelled words" do
